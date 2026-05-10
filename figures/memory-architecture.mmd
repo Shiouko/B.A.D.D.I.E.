@@ -1,0 +1,33 @@
+%% B.A.D.D.I.E. — Memory Architecture
+%% Typed memory stores and data flow
+
+flowchart TD
+    CONV(["💬 Conversation\nTurn"])
+
+    EXTRACT["Memory Extraction\nModule\n(Embedding + Typing)"]
+
+    subgraph TYPED["Typed Memory Stores"]
+        direction LR
+        EPI["📅 Episodic\nSpecific events\n& temporal sequences"]
+        SEM["📚 Semantic\nGeneral facts\n& knowledge"]
+        PROC["⚙️ Procedural\nInteraction patterns\n& preferences"]
+    end
+
+    STORE["LanceDB Vector Store\n+ SQLite Metadata"]
+
+    QUERY["Query: Top-k Retrieval\nper type + dedup"]
+
+    CONTEXT["📎 Injected Context\nfor LLM"]
+
+    CONV --> EXTRACT
+    EXTRACT --> TYPED
+    TYPED --> STORE
+    STORE --> QUERY
+    QUERY --> CONTEXT
+
+    style CONV fill:#f9f,stroke:#333,stroke-width:2px
+    style CONTEXT fill:#f9f,stroke:#333,stroke-width:2px
+    style EXTRACT fill:#e3f2fd,stroke:#1565c0
+    style TYPED fill:#e8f5e9,stroke:#2e7d32
+    style STORE fill:#fff3e0,stroke:#e65100
+    style QUERY fill:#f3e5f5,stroke:#7b1fa2

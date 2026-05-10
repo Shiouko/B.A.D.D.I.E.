@@ -1,0 +1,99 @@
+%% B.A.D.D.I.E. — System Architecture Diagram
+%% Mermaid source for the high-level system architecture
+
+flowchart TD
+    USER(["👤 User"])
+
+    subgraph VP["🎙️ Voice Pipeline"]
+        direction LR
+        WHISPER["Whisper STT\n(faster-whisper)"]
+        VAD["Silero VAD"]
+        TTS["Neural TTS\n(Piper / Kokoro)"]
+        WHISPER --> VAD --> TTS
+    end
+
+    subgraph CA["🧠 Core Agent"]
+        direction TB
+        LLM["Gemini 3.1 Flash Lite\n(LLM Inference)"]
+        PE["Personality Engine\n(Base + Adaptive + Memory-Conditioned)"]
+        TR["Tool Router\n(Function Calling)"]
+        MI["Memory Integration\n(RAG Query)"]
+        PE --> LLM
+        LLM --> TR
+        LLM --> MI
+    end
+
+    subgraph MM["💾 Memory System (RAG)"]
+        direction TB
+        EXT["Memory\nExtraction\nModule"]
+        subgraph STORES["Typed Memory Stores"]
+            direction LR
+            EPI["Episodic\nStore"]
+            SEM["Semantic\nStore"]
+            PROC["Procedural\nStore"]
+        end
+        VDB["LanceDB\n+ SQLite"]
+        EXT --> STORES
+        STORES --> VDB
+    end
+
+    subgraph VM["👁️ Vision Module"]
+        direction LR
+        SC["Screen\nCapture"]
+        CAM["Camera\nInput"]
+        GEM_V["Gemini\nMultimodal"]
+        SC --> GEM_V
+        CAM --> GEM_V
+    end
+
+    subgraph AR["🎭 Avatar Renderer"]
+        direction TB
+        L2D["Live2D Cubism SDK"]
+        LS["Lip-Sync\nEngine"]
+        EM["Expression\nMapping"]
+        IA["Idle\nAnimations"]
+        L2D --> LS
+        L2D --> EM
+        L2D --> IA
+    end
+
+    subgraph SHELL["🖥️ Tauri Desktop Shell"]
+        RUST["Rust Backend"]
+        WV["WebView\n(Svelte 5 + TS)"]
+        IPC["Tauri IPC"]
+        RUST <--> IPC <--> WV
+    end
+
+    %% User interactions
+    USER -->|"Voice Input"| WHISPER
+    USER -->|"Camera"| CAM
+    TTS -->|"Audio Output"| USER
+    AR -->|"Visual Display"| USER
+
+    %% Core data flow
+    VAD -->|"Transcribed Text"| LLM
+    MI -->|"Retrieved Context"| LLM
+    LLM -->|"Response Text"| TTS
+    LLM -->|"Emotional Tone"| EM
+    LLM -->|"Phonemes"| LS
+    GEM_V -->|"Visual Context"| LLM
+    TR -->|"Tool Results"| LLM
+
+    %% Memory flow
+    LLM -->|"New Information"| EXT
+    VDB -->|"Top-k Results"| MI
+
+    %% Shell integration
+    CA --> SHELL
+    VP --> SHELL
+    VM --> SHELL
+    AR --> SHELL
+    MM --> SHELL
+
+    style USER fill:#f9f,stroke:#333,stroke-width:2px
+    style CA fill:#e1f5fe,stroke:#01579b
+    style VP fill:#f3e5f5,stroke:#4a148c
+    style MM fill:#e8f5e9,stroke:#1b5e20
+    style VM fill:#fff3e0,stroke:#e65100
+    style AR fill:#fce4ec,stroke:#880e4f
+    style SHELL fill:#eceff1,stroke:#263238

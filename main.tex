@@ -116,13 +116,35 @@ B.A.DDD.I.E. is guided by five core design principles:
 
 \subsection{High-Level Architecture}
 
-Figure~\ref{fig:architecture} presents the system architecture. The desktop application, built on Tauri (Rust backend + web frontend), hosts four primary subsystems: the Core Agent, the Voice Pipeline, the Vision Module, and the Avatar Renderer.
+Figure~\ref{fig:architecture} presents the system architecture, generated from Mermaid source (see \texttt{figures/architecture.mmd}). The desktop application, built on Tauri (Rust backend + web frontend), hosts four primary subsystems: the Core Agent, the Voice Pipeline, the Vision Module, and the Avatar Renderer.
 
+% Mermaid diagram: figures/architecture.mmd
+% Render with: mmdc -i figures/architecture.mmd -o figures/architecture.pdf
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\columnwidth]{figures/baddie-architecture.pdf}
+    % \includegraphics[width=\columnwidth]{figures/architecture.pdf}
+    \begin{minipage}{\columnwidth}
+    \centering
+    \textbf{[System Architecture Diagram]}\\
+    \small See \texttt{figures/architecture.mmd} for Mermaid source.\\
+    Four subsystems: Core Agent, Voice Pipeline, Vision Module, Avatar Renderer.
+    \end{minipage}
     \caption{B.A.D.D.I.E. system architecture showing the four primary subsystems and data flow.}
     \label{fig:architecture}
+\end{figure}
+
+Figure~\ref{fig:personality} illustrates the three-layer personality pipeline (Mermaid source: \texttt{figures/personality-pipeline.mmd}):
+
+% Mermaid diagram: figures/personality-pipeline.mmd
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}{\columnwidth}
+    \centering
+    \textbf{[Personality Pipeline Diagram]}\\
+    \small Three layers: Base Persona $\rightarrow$ Adaptive $\rightarrow$ Memory-Conditioned.
+    \end{minipage}
+    \caption{Three-layer personality modelling pipeline.}
+    \label{fig:personality}
 \end{figure}
 
 \subsection{Core Agent}
@@ -150,7 +172,7 @@ This three-layer approach addresses the ``persona drift'' problem identified by 
 
 \subsection{Memory Architecture}
 
-Following the ENGRAM \cite{arxiv2511.12960} and Mem0 \cite{arxiv2504.19413} paradigms, B.A.D.D.I.E. organizes memory into three typed stores:
+Figure~\ref{fig:memory} depicts the typed memory architecture (Mermaid source: \texttt{figures/memory-architecture.mmd}). Following the ENGRAM \cite{arxiv2511.12960} and Mem0 \cite{arxiv2504.19413} paradigms, B.A.D.D.I.E. organizes memory into three typed stores:
 
 \begin{itemize}
     \item \textbf{Episodic memory}: Specific conversation events, user actions, and temporal sequences (e.g., ``User mentioned their exam is on Tuesday'').
@@ -162,9 +184,21 @@ Each user turn is processed by an extraction module that generates typed memory 
 
 This typed separation reduces cross-type competition during retrieval---a key limitation of flat vector stores identified by xMemory \cite{arxiv2602.02007}.
 
+% Mermaid diagram: figures/memory-architecture.mmd
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}{\columnwidth}
+    \centering
+    \textbf{[Memory Architecture Diagram]}\\
+    \small Conversation $\rightarrow$ Extraction $\rightarrow$ Typed Stores (Episodic/Semantic/Procedural) $\rightarrow$ Retrieval $\rightarrow$ LLM Context.
+    \end{minipage}
+    \caption{Typed memory architecture with RAG retrieval.}
+    \label{fig:memory}
+\end{figure}
+
 \subsection{Voice Interaction Pipeline}
 
-The voice pipeline implements a fully local speech-to-speech loop:
+Figure~\ref{fig:voice} shows the voice interaction sequence (Mermaid source: \texttt{figures/voice-pipeline.mmd}). The voice pipeline implements a fully local speech-to-speech loop:
 
 \begin{enumerate}
     \item \textbf{Speech-to-Text}: OpenAI Whisper (via faster-whisper) transcribes user speech with voice activity detection (VAD) for automatic endpointing. The ``turbo'' model size provides the best accuracy-latency tradeoff (\textasciitilde 200ms on GPU).
@@ -174,6 +208,18 @@ The voice pipeline implements a fully local speech-to-speech loop:
 \end{enumerate}
 
 The target end-to-end latency from user speech end to first audio output is 1.0--2.0 seconds on hardware with 8+ GB VRAM.
+
+% Mermaid diagram: figures/voice-pipeline.mmd
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}{\columnwidth}
+    \centering
+    \textbf{[Voice Pipeline Sequence Diagram]}\\
+    \small User $\rightarrow$ VAD $\rightarrow$ Whisper $\rightarrow$ LLM $\rightarrow$ TTS/Avatar (streaming).
+    \end{minipage}
+    \caption{Voice interaction pipeline with streaming TTS overlap.}
+    \label{fig:voice}
+\end{figure}
 
 \subsection{Vision Module}
 

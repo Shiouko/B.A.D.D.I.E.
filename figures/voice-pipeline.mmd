@@ -1,0 +1,21 @@
+%% B.A.D.D.I.E. — Voice Interaction Pipeline
+%% End-to-end voice processing flow
+
+sequenceDiagram
+    participant U as 👤 User
+    participant VAD as Silero VAD
+    participant STT as Whisper STT
+    participant LLM as Gemini 3.1
+    participant RAG as Memory (RAG)
+    participant TTS as Piper/Kokoro
+    participant A as 🎭 Avatar
+
+    U->>VAD: Voice Audio Stream
+    VAD->>STT: Speech Segment (endpoint detected)
+    STT->>LLM: Transcribed Text
+    RAG->>LLM: Retrieved Memories (context)
+    LLM->>LLM: Generate Response (streaming)
+    LLM-->>TTS: Sentence Buffer (first complete sentence)
+    LLM-->>A: Emotional Tone + Phonemes
+    TTS->>U: Audio Output (overlapped with generation)
+    A->>U: Lip-sync + Expression Animation

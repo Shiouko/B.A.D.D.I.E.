@@ -1,0 +1,40 @@
+%% B.A.D.D.I.E. — Personality Modelling Pipeline
+%% Three-layer personality architecture
+
+flowchart LR
+    INPUT(["💬 User Input"])
+
+    subgraph LAYER1["Layer 1: Base Persona"]
+        SP["System Prompt\n'Baddie' Personality\n- Confident\n- Witty\n- Emotionally Intelligent"]
+    end
+
+    subgraph LAYER2["Layer 2: Adaptive Layer"]
+        SM["Sentiment\nTracking"]
+        PM["Preference\nModel"]
+        UF["User Feedback\nLoop"]
+        SM --> PM
+        UF --> PM
+    end
+
+    subgraph LAYER3["Layer 3: Memory-Conditioned"]
+        EM["Episodic\nMemories"]
+        SEM["Semantic\nMemories"]
+        PROC["Procedural\nMemories"]
+        MEM_OUT["Context-Specific\nPersonality Modulation"]
+        EM --> MEM_OUT
+        SEM --> MEM_OUT
+        PROC --> MEM_OUT
+    end
+
+    OUTPUT(["🎭 Personality-Consistent\nResponse"])
+
+    INPUT --> LAYER1
+    LAYER1 --> LAYER2
+    LAYER2 --> LAYER3
+    LAYER3 --> OUTPUT
+
+    style INPUT fill:#f9f,stroke:#333,stroke-width:2px
+    style OUTPUT fill:#f9f,stroke:#333,stroke-width:2px
+    style LAYER1 fill:#e3f2fd,stroke:#1565c0
+    style LAYER2 fill:#f3e5f5,stroke:#7b1fa2
+    style LAYER3 fill:#e8f5e9,stroke:#2e7d32

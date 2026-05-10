@@ -19,25 +19,26 @@ B.A.D.D.I.E. is a privacy-first AI companion that runs entirely on your desktop.
 
 ## Architecture
 
+All system diagrams are written in **Mermaid** format (`.mmd` files in `figures/`). Render them with:
+
+```bash
+mmdc -i figures/architecture.mmd -o figures/architecture.pdf
+mmdc -i figures/personality-pipeline.mmd -o figures/personality-pipeline.pdf
+mmdc -i figures/voice-pipeline.mmd -o figures/voice-pipeline.pdf
+mmdc -i figures/memory-architecture.mmd -o figures/memory-architecture.pdf
 ```
-┌─────────────────────────────────────────────────┐
-│                  Tauri Shell                     │
-│  ┌───────────┐ ┌──────────┐ ┌────────────────┐  │
-│  │ Core Agent│ │  Vision  │ │  Avatar (WebGL)│  │
-│  │ (Gemini)  │ │  Module  │ │  (Live2D)      │  │
-│  └─────┬─────┘ └────┬─────┘ └───────┬────────┘  │
-│        │            │               │            │
-│  ┌─────▼─────────────▼───────────────▼────────┐  │
-│  │           Voice Pipeline                    │  │
-│  │  Whisper STT → LLM → TTS (Piper/Kokoro)    │  │
-│  └─────────────────┬──────────────────────────┘  │
-│                    │                             │
-│  ┌─────────────────▼──────────────────────────┐  │
-│  │           Memory System (RAG)               │  │
-│  │  LanceDB + SQLite (local vector store)      │  │
-│  └────────────────────────────────────────────┘  │
-└─────────────────────────────────────────────────┘
-```
+
+### System Architecture
+![System Architecture](figures/architecture.mmd)
+
+### Personality Pipeline
+![Personality Pipeline](figures/personality-pipeline.mmd)
+
+### Voice Pipeline
+![Voice Pipeline](figures/voice-pipeline.mmd)
+
+### Memory Architecture
+![Memory Architecture](figures/memory-architecture.mmd)
 
 ## Tech Stack
 
