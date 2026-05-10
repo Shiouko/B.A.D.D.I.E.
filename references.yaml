@@ -1,0 +1,308 @@
+---
+references:
+  - id: weizenbaum1966eliza
+    type: article-journal
+    author:
+      - family: Weizenbaum
+        given: Joseph
+    title: "ELIZA—A Computer Program for the Study of Natural Language Communication Between Man and Machine"
+    container-title: Communications of the ACM
+    volume: 9
+    issue: 1
+    page: 36-45
+    issued:
+      year: 1966
+    DOI: 10.1145/365153.365168
+
+  - id: chen2024tmlr-persona
+    type: article-journal
+    author:
+      - family: Chen
+        given: Jiangjie
+      - family: Wang
+        given: Xintao
+      - family: Xu
+        given: Rui
+      - family: Yuan
+        given: Siyu
+      - family: Zhang
+        given: Yikai
+      - family: Shi
+        given: Wei
+      - family: Xie
+        given: Jian
+      - family: Li
+        given: Shuang
+      - family: Yang
+        given: Ruihan
+      - family: Zhu
+        given: Tinghui
+      - family: Chen
+        given: Aili
+      - family: Li
+        given: Nianqi
+      - family: Chen
+        given: Lida
+      - family: Hu
+        given: Caiyu
+      - family: Wu
+        given: Siye
+      - family: Ren
+        given: Scott
+      - family: Fu
+        given: Ziquan
+      - family: Xiao
+        given: Yanghua
+    title: "From Persona to Personalization: A Survey on Role-Playing Language Agents"
+    container-title: Transactions on Machine Learning Research
+    issued:
+      year: 2024
+    URL: https://mlanthology.org/tmlr/2024/chen2024tmlr-persona/
+
+  - id: tissaoui2026prompt
+    type: article-journal
+    author:
+      - family: Tissaoui
+        given: Amine
+      - family: Men
+        given: Tao
+      - family: Liu
+        given: Weijie
+      - family: Zhang
+        given: Jingjing
+      - family: Li
+        given: Xing
+      - family: Lin
+        given: Xinyu
+      - family: Sui
+        given: Dianbo
+      - family: Cao
+        given: Yang
+      - family: Liu
+        given: Kai
+      - family: Zhao
+        given: Jing
+    title: "From Prompt to Persona: A Literature Review on LLMs as Single Cognitive Agents"
+    container-title: Journal of Ambient Intelligence and Humanized Computing
+    volume: 17
+    page: 205-221
+    issued:
+      year: 2026
+    DOI: 10.1007/s12652-025-05029-4
+
+  - id: findings2025personality
+    type: paper-conference
+    author:
+      - family: Wang
+        given: Yuxuan
+      - family: Liang
+        given: Xiaoyu
+      - family: Tao
+        given: Mengyuan
+      - family: Xia
+        given: Yuxi
+      - family: Wang
+        given: Jing
+      - family: Li
+        given: Kaiqiang
+      - family: Wang
+        given: Yuxuan
+      - family: Yang
+        given: Jingjing
+      - family: Shi
+        given: Tangming
+      - family: Zhang
+        given: Meng
+      - family: Wang
+        given: Xingxing
+    title: "Modeling, Evaluating, and Embodying Personality in LLMs: A Survey"
+    container-title: Findings of the Association for Computational Linguistics
+    issued:
+      year: 2025
+    URL: https://aclanthology.org/2025.findings-emnlp.506.pdf
+
+  - id: tseng2024two
+    type: article-journal
+    author:
+      - family: Tseng
+        given: Yu-Min
+      - family: Chi
+        given: Pei-Shan
+      - family: Huang
+        given: Ding-Chieh
+    title: "Two Tales of Persona in LLMs: A Survey of Role-Playing and Personalization"
+    container-title: arXiv preprint
+    issued:
+      year: 2024
+    URL: https://arxiv.org/abs/2406.01171
+
+  - id: arxiv2508.09998
+    type: article-journal
+    author:
+      - family: Lee
+        given: Hyunji
+      - family: Park
+        given: Seongjin
+      - family: Kim
+        given: Jihye
+      - family: Choi
+        given: Yuna
+      - family: Park
+        given: Seungjin
+      - family: Kim
+        given: Minji
+      - family: Lee
+        given: Jihoon
+      - family: Park
+        given: Jaehyuk
+      - family: Yoon
+        given: Sungroh
+    title: "INTIMA: A Benchmark for Human-AI Companionship Behavior"
+    container-title: arXiv preprint
+    issued:
+      year: 2025
+    URL: https://arxiv.org/abs/2508.09998
+
+  - id: arxiv2504.19413
+    type: article-journal
+    author:
+      - family: Chhikara
+        given: Prateek
+      - family: Khant
+        given: Dev
+      - family: Aryan
+        given: Saket
+      - family: Singh
+        given: Taranjeet
+      - family: Yadav
+        given: Amit
+    title: "Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory"
+    container-title: arXiv preprint
+    issued:
+      year: 2025
+    URL: https://arxiv.org/abs/2504.19413
+
+  - id: arxiv2511.12960
+    type: article-journal
+    author:
+      - family: Plaat
+        given: Aske
+      - family: Abdalrahem
+        given: Ahmed
+      - family: van der Meer
+        given: Maarten
+    title: "ENGRAM: Effective, Lightweight Memory Orchestration for Conversational Agents"
+    container-title: arXiv preprint
+    issued:
+      year: 2025
+    URL: https://arxiv.org/abs/2511.12960
+
+  - id: arxiv2501.13956
+    type: article-journal
+    author:
+      - family: Rasmussen
+        given: Rasmus
+    title: "Zep: A Temporal Knowledge Graph Architecture for Agent Memory"
+    container-title: arXiv preprint
+    issued:
+      year: 2025
+    URL: https://arxiv.org/abs/2501.13956
+
+  - id: arxiv2602.02007
+    type: article-journal
+    author:
+      - family: Fang
+        given: Yuxuan
+      - family: Pan
+        given: Zhihua
+      - family: Hu
+        given: Zhiyuan
+      - family: Xu
+        given: Shengnan
+      - family: Liu
+        given: Yifan
+      - family: Zhang
+        given: Yuhui
+      - family: Zhou
+        given: Shuchang
+      - family: Gao
+        given: Jianfeng
+    title: "Beyond RAG for Agent Memory: Retrieval by Decoupling and Aggregation"
+    container-title: arXiv preprint
+    issued:
+      year: 2026
+    URL: https://arxiv.org/abs/2602.02007
+
+  - id: christopher-ai
+    type: webpage
+    author:
+      - family: JRM-FusionAL
+    title: "Christopher—Local Voice AI Assistant"
+    URL: https://github.com/JRM-FusionAL/Christopher-AI
+    issued:
+      year: 2026
+
+  - id: hemantbk-ai
+    type: webpage
+    author:
+      - family: HemantBK
+    title: "AI-Voice-Assistant: Production-Leaning Local Voice Pipeline"
+    URL: https://github.com/HemantBK/AI-Voice-Assistant
+    issued:
+      year: 2026
+
+  - id: liilk-companion
+    type: webpage
+    author:
+      - family: LiiLk
+    title: "Local-AI-Companion: Fully Offline Voice AI with Live2D Avatar"
+    URL: https://github.com/LiiLk/Local-AI-Companion
+    issued:
+      year: 2025
+
+  - id: insiderllm2026voice
+    type: webpage
+    author:
+      - family: InsiderLLM
+    title: "Talk to Your Local LLM: Voice Chat Setup"
+    URL: https://www.insiderllm.com/guides/voice-chat-local-llms-whisper-tts/
+    issued:
+      year: 2026
+
+  - id: gemini31flashlite
+    type: webpage
+    author:
+      - family: Google DeepMind
+    title: "Gemini 3.1 Flash-Lite"
+    URL: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite
+    issued:
+      year: 2026
+
+  - id: arxiv2403.08888
+    type: article-journal
+    author:
+      - family: Zhou
+        given: Andy
+      - family: Tang
+        given: Jing
+    title: "CharacterBench: Benchmarking Persona Consistency in LLM Agents"
+    container-title: arXiv preprint
+    issued:
+      year: 2024
+    URL: https://arxiv.org/abs/2403.08888
+
+  - id: arxiv2511.02979
+    type: article-journal
+    author:
+      - family: Zhang
+        given: Yikai
+      - family: Chen
+        given: Jiangjie
+      - family: Wang
+        given: Xintao
+    title: "Systematizing LLM Persona Design: A Four-Quadrant Technical Taxonomy for AI Companion Applications"
+    container-title: arXiv preprint
+    issued:
+      year: 2025
+    URL: https://arxiv.org/abs/2511.02979
+...
