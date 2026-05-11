@@ -1,0 +1,13 @@
+// figures/build-results.mmd
+graph LR
+    A[Vite Build] --> B[97 Modules]
+    B --> C[3.33s Build Time]
+    C --> D[330 kB Bundle]
+    D --> E[Static HTML/JS/CSS]
+    
+    F[Rust Backend] --> G[Cargo Build]
+    G --> H[~45s Cold Build]
+    H --> I[Tauri Binary]
+    
+    E --> J[B.A.D.D.I.E. Desktop App]
+    I --> J
