@@ -1,6 +1,4 @@
-# B.A.D.D.I.E.
-
-**Behavioural Architectures for Digitally-Defined Independent Entities**
+# B.A.D.D.I.E. — Behavioural Architectures for Digitally-Defined Independent Entities
 
 A local-first desktop AI companion with personality modelling, RAG-based long-term memory, real-time voice interaction, machine vision, and an animated Live2D avatar.
 
